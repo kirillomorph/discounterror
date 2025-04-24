@@ -6,7 +6,7 @@ public class Discounterror {
     public static void main(String[] args) throws Exception {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.print("Do you want to see our discount(1) or sales(2)?");
+        System.out.print("Do you want to see our discount(1) or sales(2)? ");
         String scannerInput = scanner.nextLine();
 
         if (scannerInput.equals("1")) {
@@ -20,20 +20,26 @@ public class Discounterror {
 
     public static void dayOfWeek() {
         Date date = new Date();
+        SimpleDateFormat dateFormilized = new SimpleDateFormat("EEEE");
+        String dateFormilizedString = dateFormilized.format(date);
 
-        System.out.println(date);
-
-        SimpleDateFormat curDate = new SimpleDateFormat ("MM");
-        String curDateString = curDate.format(date);
-
-        if (curDateString.equals("April")) {
-            System.out.println("It's December! Happy New Year! You have a discount!");
+        if (dateFormilizedString.equals("Friday")) {
+            System.out.println("It's Friday! Happy weekend! You have sales!");
         } else {
-            System.out.println("It's not a December! Not sales for you!");
+            System.out.println("It's not a Friday! No sales for you! It's " + dateFormilizedString + " now!");
         }
     }
 
     public static void monthOfYear() {
+        Date date = new Date();
 
+        SimpleDateFormat curDate = new SimpleDateFormat ("MMMM"); 
+        String curDateString = curDate.format(date);
+
+        if (curDateString.equals("December")) {
+            System.out.println("It's December! Happy New Year! You have a discount!");
+        } else {
+            System.out.println("It's not a December! No sales for you! It's " + curDateString + " now!");
+        }
     }
 }
